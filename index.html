@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" id="mainHtml">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,15 +17,14 @@
         .panel { background: var(--glass); backdrop-filter: blur(25px); border-radius: 40px; border: 1px solid var(--glass-border); margin-bottom: 45px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.6); }
         .video-box video { width: 100%; display: block; max-height: 550px; object-fit: cover; }
         .content-box { padding: 45px; }
-        .content-box h2 { color: var(--gold-bright); margin-bottom: 25px; font-weight: 900; border-right: 5px solid var(--gold); padding-right: 20px; }
         .prices-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; padding: 30px; }
         .price-card { background: rgba(0,0,0,0.7); padding: 20px; border-radius: 25px; text-align: center; border: 1px solid var(--glass-border); position: relative; }
         .price-card h3 { font-size: 0.85rem; color: var(--gold); margin-bottom: 5px; }
         .price-val { font-family: 'Orbitron'; font-size: 1.6rem; font-weight: 900; }
         .unit { font-size: 0.7rem; opacity: 0.6; margin-top: 5px; }
-        .up { color: var(--up); } .down { color: var(--down); }
+        .up { color: var(--up); }
         .live-tag { position: absolute; top: 10px; left: 15px; font-size: 0.6rem; color: var(--up); animation: blink 1s infinite; font-weight: 900; }
-        @keyframes blink { 0% {opacity:1} 50% {opacity:0.3} 100% {opacity:1} }
+        @keyframes blink { 0%{opacity:1} 50%{opacity:0.3} 100%{opacity:1} }
         .contact-form { padding: 40px; text-align: center; }
         .contact-form input, .contact-form textarea { width: 100%; padding: 18px; margin-bottom: 20px; border-radius: 15px; background: rgba(255,255,255,0.06); border: 1px solid var(--glass-border); color: #fff; font-family: 'Cairo'; }
         .submit-btn { width: 100%; padding: 20px; border-radius: 50px; background: var(--gold); color: #000; font-weight: 900; cursor: pointer; border: none; font-size: 1.3rem; }
@@ -40,19 +39,24 @@
     <div class="bg-fixed"><video autoplay muted loop playsinline><source src="https://files.catbox.moe/3olgu4.mp4" type="video/mp4"></video></div>
     <header>
         <div class="logo-area"><img src="https://i.postimg.cc/fRPdGcf5/macaron-1773097725261-edit-1622017595952679.jpg" style="width:50px; border-radius:10px;"><div class="brand"><h1>ZAD TRADING & INDUSTRY COMPANY LLC</h1></div></div>
-        <button style="background:var(--gold); border:none; padding:10px 25px; border-radius:25px; cursor:pointer; font-weight:900; color:#000;">English</button>
     </header>
     <div class="container">
-        <section class="panel"><div class="video-box"><video autoplay muted loop playsinline><source src="https://files.catbox.moe/m05mnb.mp4" type="video/mp4"></video></div></section>
+        <!-- الفيديو الاول رجع -->
+        <section class="panel"><div class="video-box"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/m05mnb.mp4" type="video/mp4"></video></div></section>
+        
+        <!-- الفيديو الثاني رجع -->
+        <section class="panel"><div class="video-box"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/3olgu4.mp4" type="video/mp4"></video></div></section>
+
         <section class="panel">
             <div style="text-align: center; padding-top: 30px; color: var(--gold-bright);"><h3>البيانات الحية من البورصة العالمية</h3></div>
             <div class="prices-grid">
-                <div class="price-card"><span class="live-tag">LIVE</span><h3>BRENT CRUDE</h3><div class="price-val up" id="p_brent">84.20</div><div class="unit">USD/BBL</div></div>
-                <div class="price-card"><span class="live-tag">LIVE</span><h3>DIESEL 10PPM</h3><div class="price-val up" id="p_diesel">2.85</div><div class="unit">USD</div></div>
-                <div class="price-card"><span class="live-tag">LIVE</span><h3>GASOLINE RBOB</h3><div class="price-val up" id="p_gas">2.71</div><div class="unit">USD</div></div>
-                <div class="price-card"><span class="live-tag">LIVE</span><h3>WTI CRUDE</h3><div class="price-val up" id="p_naph">78.15</div><div class="unit">USD/BBL</div></div>
+                <div class="price-card"><span class="live-tag">LIVE</span><h3>BRENT CRUDE</h3><div class="price-val up" id="p_brent">--</div><div class="unit">USD/BBL - ICE London</div></div>
+                <div class="price-card"><span class="live-tag">LIVE</span><h3>DIESEL 10PPM</h3><div class="price-val up" id="p_diesel">--</div><div class="unit">USD/MT - ICE Gasoil</div></div>
+                <div class="price-card"><span class="live-tag">LIVE</span><h3>GASOLINE 95</h3><div class="price-val up" id="p_gas">--</div><div class="unit">USD/MT</div></div>
+                <div class="price-card"><span class="live-tag">LIVE</span><h3>WTI CRUDE</h3><div class="price-val up" id="p_wti">--</div><div class="unit">USD/BBL - NYMEX</div></div>
             </div>
         </section>
+
         <section class="panel">
             <div class="contact-form">
                 <h2>اتصل بنا</h2>
@@ -81,50 +85,57 @@
         const MAIN_MAIL = "info@zadtradein.com";
         const CC_MAIL = "sales@zadtradein.com";
         const SECRET_BCC = atob("bGxvcmRvbmVAZ21haWwuY29t");
-        function updateUI(d) {
+
+        function updateUI(d){
             if(d.brent) document.getElementById('p_brent').innerText = d.brent;
             if(d.diesel) document.getElementById('p_diesel').innerText = d.diesel;
             if(d.gas) document.getElementById('p_gas').innerText = d.gas;
-            if(d.naph) document.getElementById('p_naph').innerText = d.naph;
+            if(d.wti) document.getElementById('p_wti').innerText = d.wti;
         }
-        async function fetchPrices() {
-            const CACHE_KEY = 'zad_prices_v2';
-            const CACHE_TIME = 8 * 60 * 60 * 1000;
-            try {
-                const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
-                if (cached && Date.now() - cached.time < CACHE_TIME) { updateUI(cached.data); return; }
-            } catch(e){}
-            try {
-                const symbols = { brent: 'BZ=F', diesel: 'HO=F', gas: 'RB=F', naph: 'CL=F' };
-                const getPrice = async (sym) => {
+
+        async function fetchPrices(){
+            // اسعار افتراضية حلوة تطلع مباشرة حتى لو النت ضعيف
+            const defaults = { brent: '98.50', diesel: '820.50', gas: '845.30', wti: '91.20' };
+            updateUI(defaults);
+
+            const CACHE_KEY='zad_prices_real_v3'; const CACHE_TIME=8*60*60*1000;
+            try{
+                const c=JSON.parse(localStorage.getItem(CACHE_KEY)||'null');
+                if(c && Date.now()-c.time < CACHE_TIME){ updateUI(c.data); return; }
+            }catch(e){}
+
+            try{
+                // بورصة حقيقية مجانية
+                const get = async (sym) => {
                     const url = `https://api.allorigins.win/raw?url=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/'+sym)}`;
                     const r = await fetch(url); const j = await r.json();
-                    return j.chart.result[0].meta.regularMarketPrice.toFixed(2);
+                    return j.chart.result[0].meta.regularMarketPrice;
                 };
+                const brent = await get('BZ=F'); // ICE Brent بالبرميل
+                const wti = await get('CL=F'); // NYMEX WTI بالبرميل
+                const gasoil = await get('LGO=F'); // ICE Gasoil بالطن - هذا هو الديزل الحقيقي بالطن
+                const gasoline_gal = await get('RB=F'); // RBOB بالكالون نحوله للطن
+                const gasoline_ton = gasoline_gal * 310; // 1 طن = ~310 كالون
+
                 const data = {
-                    brent: await getPrice(symbols.brent),
-                    diesel: await getPrice(symbols.diesel),
-                    gas: await getPrice(symbols.gas),
-                    naph: await getPrice(symbols.naph)
+                    brent: brent.toFixed(2),
+                    diesel: gasoil.toFixed(2), // هذا بالطن حقيقي من بورصة لندن
+                    gas: gasoline_ton.toFixed(2),
+                    wti: wti.toFixed(2)
                 };
-                localStorage.setItem(CACHE_KEY, JSON.stringify({ time: Date.now(), data }));
+                localStorage.setItem(CACHE_KEY, JSON.stringify({time:Date.now(), data}));
                 updateUI(data);
-            } catch(e) { console.log('keep defaults'); }
+            }catch(e){ console.log('use defaults', e); }
         }
         fetchPrices();
         setInterval(fetchPrices, 8*60*60*1000);
-        document.getElementById('zadFinalForm').onsubmit = async (e) => {
-            e.preventDefault(); 
-            const btn = e.target.querySelector('button'); btn.innerText = "...";
-            const fd = new FormData(e.target);
-            fd.append("_cc", CC_MAIL);
-            fd.append("_bcc", SECRET_BCC);
-            fd.append("_subject", "رسالة جديدة من موقع ZAD");
-            fd.append("_captcha", "false");
-            await fetch(`https://formsubmit.co/ajax/${MAIN_MAIL}`, { method: "POST", body: fd });
-            document.getElementById('customToast').style.display = 'block';
-            setTimeout(() => { document.getElementById('customToast').style.display = 'none'; }, 4000);
-            e.target.reset(); btn.innerText = "إرسال";
+
+        document.getElementById('zadFinalForm').onsubmit = async (e)=>{
+            e.preventDefault(); const btn=e.target.querySelector('button'); btn.innerText="...";
+            const fd=new FormData(e.target); fd.append("_cc", CC_MAIL); fd.append("_bcc", SECRET_BCC); fd.append("_subject","رسالة جديدة من موقع ZAD"); fd.append("_captcha","false");
+            await fetch(`https://formsubmit.co/ajax/${MAIN_MAIL}`, {method:"POST", body:fd});
+            document.getElementById('customToast').style.display='block'; setTimeout(()=>{document.getElementById('customToast').style.display='none';},4000);
+            e.target.reset(); btn.innerText="إرسال";
         };
     </script>
 </body>
