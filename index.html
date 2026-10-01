@@ -2,131 +2,74 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZAD TRADING & INDUSTRY COMPANY LLC</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<title>ZAD TRADING</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#d4af37;--gold-bright:#ffdf00;--glass:rgba(255,255,255,0.05);--border:rgba(212,175,55,0.35);--up:#00ff88}
-*{margin:0;padding:0;box-sizing:border-box}body{background:#000;color:#fff;font-family:'Cairo',sans-serif;overflow-x:hidden}
-.bg{position:fixed;inset:0;z-index:-2} .bg video{width:100%;height:100%;object-fit:cover;filter:brightness(0.18)}
-header{position:sticky;top:0;z-index:999;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.88);border-bottom:2px solid var(--gold);backdrop-filter:blur(20px)}
-header h1{font-size:1.4rem;font-weight:900;color:var(--gold-bright);font-family:'Orbitron'}
-.container{max-width:1150px;margin:0 auto;padding:22px}
-.panel{background:var(--glass);backdrop-filter:blur(28px);border-radius:36px;border:1px solid var(--border);margin-bottom:38px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,0.6)}
-.video-box{position:relative} .video-box video{width:100%;max-height:580px;object-fit:cover;display:block}
-.video-overlay{position:absolute;bottom:0;left:0;right:0;padding:25px;background:linear-gradient(transparent, rgba(0,0,0,0.85))}
-.video-overlay h2{font-size:1.8rem;font-weight:900;color:var(--gold-bright);border-right:5px solid var(--gold);padding-right:15px}
-.content{padding:38px} .content h2{font-size:1.7rem;font-weight:900;color:var(--gold-bright);margin-bottom:18px;border-right:5px solid var(--gold);padding-right:14px}
-.content h3{color:var(--gold);margin:22px 0 10px;font-size:1.2rem} .content p{line-height:2;opacity:0.92;font-size:1.05rem}
-.content ul{list-style:none;margin-top:12px} .content li{position:relative;padding-right:28px;margin-bottom:12px;line-height:1.8}
-.content li::before{content:'>';position:absolute;right:0;color:var(--gold-bright);font-weight:900}
-.blue-box{background:linear-gradient(135deg,#0033cc,#0022aa);padding:38px;border-radius:28px}
-.prices-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px;padding:28px}
-.price-card{background:rgba(0,0,0,0.75);padding:18px;border-radius:22px;text-align:center;border:1px solid var(--border);position:relative}
-.price-val{font-family:'Orbitron';font-size:1.4rem;font-weight:900;color:var(--up)} .live{position:absolute;top:8px;left:12px;font-size:0.55rem;color:var(--up);font-weight:900;animation:blink 1s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
-.contact{padding:36px;text-align:center} .contact input,.contact textarea{width:100%;padding:16px;margin-bottom:14px;border-radius:14px;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:#fff;font-family:'Cairo'}
-.btn{width:100%;padding:18px;border-radius:50px;background:var(--gold);color:#000;font-weight:900;border:none;cursor:pointer;font-size:1.2rem}
-#toast{position:fixed;bottom:35px;left:50%;transform:translateX(-50%);background:var(--gold-bright);color:#000;padding:14px 40px;border-radius:50px;font-weight:900;display:none;z-index:9999}
-.footer-mail{color:var(--gold-bright);display:inline-block;margin:4px 8px;cursor:default;user-select:all}
+:root{--gold:#d4af37;--gb:#ffdf00;--up:#00ff88}
+*{margin:0;padding:0;box-sizing:border-box}body{background:#000;color:#fff;font-family:'Cairo',sans-serif}
+.bg{position:fixed;inset:0;z-index:-5}.bg video{width:100%;height:100%;object-fit:cover;filter:brightness(0.18)}
+header{position:sticky;top:0;z-index:99;background:rgba(0,0,0,0.9);border-bottom:2px solid var(--gold);padding:12px 4%;display:flex;justify-content:space-between}
+.container{max-width:1100px;margin:auto;padding:18px}
+.panel{background:rgba(255,255,255,0.05);backdrop-filter:blur(25px);border-radius:32px;border:1px solid rgba(212,175,55,0.3);margin-bottom:28px;overflow:hidden}
+video{width:100%;display:block;max-height:520px}
+.content{padding:30px}.content h2{color:var(--gb);border-right:5px solid var(--gold);padding-right:12px;margin-bottom:14px;font-size:1.5rem}
+.content p{line-height:2;opacity:0.9}
+ul{list-style:none} li{padding-right:24px;position:relative;margin-bottom:10px} li::before{content:'>';position:absolute;right:0;color:var(--gb);font-weight:900}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;padding:22px}
+.card{background:rgba(0,0,0,0.7);padding:16px;border-radius:20px;text-align:center;border:1px solid rgba(212,175,55,0.3)}
+.val{font-family:'Orbitron';color:var(--up);font-weight:900}
+#toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:var(--gb);color:#000;padding:12px 35px;border-radius:50px;display:none;font-weight:900;z-index:999}
 </style>
 </head>
 <body>
-<div id="toast">تم الإرسال بنجاح ✅</div>
-<div class="bg"><video autoplay muted loop playsinline><source src="https://files.catbox.moe/3olgu4.mp4" type="video/mp4"></video></div>
-<header><h1>ZAD TRADING & INDUSTRY COMPANY LLC</h1><div style="font-family:Orbitron;font-size:0.9rem">+968 9386 9383</div></header>
-
+<div id="toast">تم ✅</div>
+<div class="bg"><video autoplay muted loop playsinline><source src="https://files.catbox.moe/3olgu4.mp4"></video></div>
+<header><h1 style="color:var(--gb);font-family:'Orbitron';font-size:1.2rem">ZAD TRADING & INDUSTRY COMPANY LLC</h1><span>+968 9386 9383</span></header>
 <div class="container">
 
-<!-- 1 - معلومات عنا + فيديو -->
-<section class="panel">
-<div class="video-box"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/m05mnb.mp4" type="video/mp4"></video><div class="video-overlay"><h2>تمكين النمو العالمي من خلال الاستثمار الاستراتيجي</h2></div></div>
-<div class="content blue-box">
-<p>شركة زاد للاستثمار التجاري هي شركة عالمية لتجارة النفط مقرها في سلطنة عمان، وهي ملتزمة بالكفاءة والاستدامة والتميز في تجارة النفط الخام والمنتجات المكررة والبتروكيماويات في جميع أنحاء العالم.</p>
-<h3>رؤيتنا</h3><p>أن نكون شركة رائدة عالمياً في تجارة النفط من خلال توفير حلول طاقة مبتكرة وفعالة ومستدامة.</p>
-<h3>مهمتنا</h3><ul><li>تقديم منتجات بترولية عالية الجودة بكفاءة ومسؤولية</li><li>بناء شراكات طويلة الأمد قائمة على الثقة والتميز</li><li>المساهمة في التحول العالمي في مجال الطاقة من خلال ممارسات تجارية مسؤولة</li></ul>
-</div>
-</section>
+<!-- فيديو 1 - معلومات عنا -->
+<section class="panel"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/m05mnb.mp4"></video>
+<div class="content" style="background:linear-gradient(135deg,#0033cc,#001a66)"><h2>تمكين النمو العالمي من خلال الاستثمار الاستراتيجي</h2><p>شركة زاد للاستثمار التجاري هي شركة عالمية لتجارة النفط مقرها في سلطنة عمان، ملتزمة بالكفاءة والاستدامة والتميز في تجارة النفط الخام والمنتجات المكررة والبتروكيماويات في جميع أنحاء العالم.</p>
+<h3 style="color:var(--gb);margin-top:18px">رؤيتنا</h3><p>أن نكون شركة رائدة عالمياً في تجارة النفط من خلال توفير حلول طاقة مبتكرة وفعالة ومستدامة.</p>
+<h3 style="color:var(--gb);margin-top:18px">مهمتنا</h3><ul><li>تقديم منتجات بترولية عالية الجودة بكفاءة ومسؤولية</li><li>بناء شراكات طويلة الأمد على الثقة والتميز</li><li>المساهمة في التحول العالمي للطاقة بممارسات مسؤولة</li></ul></div></section>
 
-<!-- 2 - الخام وتجارة النفط -->
-<section class="panel">
-<div class="video-box"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/3olgu4.mp4" type="video/mp4"></video><div class="video-overlay"><h2>الخام وتجارة النفط والمكرر</h2></div></div>
-<div class="content"><p>نتاجر بالنفط الخام عالي الجودة والمنتجات المكررة مثل البنزين والديزل ووقود الطائرات وزيت الوقود. تضمن شبكتنا العالمية مصادر موثوقة وتسليماً في الوقت المناسب للمصافي والشركاء في جميع أنحاء العالم.</p></div>
-</section>
+<!-- فيديو 2 - الخام وتجارة النفط - الفيديو الجديد مالك -->
+<section class="panel"><video autoplay muted loop playsinline controls poster=""><source src="https://files.catbox.moe/m05mnb.mp4"></video>
+<div class="content"><h2>الخام وتجارة النفط والمكرر</h2><p>نتاجر بالنفط الخام عالي الجودة والمنتجات المكررة مثل البنزين والديزل ووقود الطائرات وزيت الوقود. تضمن شبكتنا العالمية مصادر موثوقة وتسليماً في الوقت المناسب للمصافي والشركاء في جميع أنحاء العالم.</p></div></section>
 
-<!-- 3 - الخدمات اللوجستية - الفيديو الي دزيته -->
-<section class="panel">
-<div class="video-box"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/m05mnb.mp4" type="video/mp4"></video><div class="video-overlay"><h2>الخدمات وحلول اللوجستية وسلاسل التوريد</h2></div></div>
-<div class="content"><p>بفضل شبكتنا العالمية القوية، ندير الخدمات اللوجستية والشحن والتخزين بكفاءة، مما يضمن تسليم المنتجات البترولية في الوقت المناسب وبأقل تكلفة.</p></div>
-</section>
+<!-- فيديو 3 - الخدمات اللوجستية -->
+<section class="panel"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/3olgu4.mp4"></video>
+<div class="content"><h2>الخدمات حلول اللوجستية وسلاسل التوريد</h2><p>بفضل شبكتنا العالمية القوية، ندير الخدمات اللوجستية والشحن والتخزين بكفاءة، مما يضمن تسليم المنتجات البترولية في الوقت المناسب وبأقل تكلفة.</p></div></section>
 
-<!-- 4 - ادارة المخاطر -->
-<section class="panel">
-<div class="video-box"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/3olgu4.mp4" type="video/mp4"></video><div class="video-overlay"><h2>إدارة المخاطر والتحوط</h2></div></div>
-<div class="content"><p>نقدم حلولاً مبتكرة لإدارة المخاطر المالية لحماية عملائنا من تقلبات السوق وتذبذب الأسعار، مع استراتيجيات تحوط مدروسة تضمن استقرار الأعمال.</p>
-<h3>الاستثمارات المباشرة</h3><p>نوفر استثمارات مباشرة في مشاريع النفط والطاقة ضمن شبكة عالمية موثوقة.</p></div>
-</section>
+<!-- فيديو 4 - ادارة المخاطر -->
+<section class="panel"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/m05mnb.mp4"></video>
+<div class="content"><h2>إدارة المخاطر والتحوط</h2><p>نقدم حلولاً لإدارة المخاطر المالية لحماية عملائنا من تقلبات السوق وتذبذب الأسعار.</p><h3 style="color:var(--gb);margin-top:15px">الاكتتابات الخاصة</h3><p>توفير فرص التوظيف الخاص في مشاريع النفط والغاز، مما يتيح للمستثمرين المعتمدين المشاركة في الاستكشاف والإنتاج والبنية التحتية.</p></div></section>
 
-<!-- 5 - الاكتتابات الخاصة -->
-<section class="panel">
-<div class="video-box"><video autoplay muted loop playsinline controls><source src="https://files.catbox.moe/m05mnb.mp4" type="video/mp4"></video><div class="video-overlay"><h2>الاكتتابات الخاصة</h2></div></div>
-<div class="content"><p>توفير فرص التوظيف الخاص في مشاريع النفط والغاز، مما يتيح للمستثمرين المعتمدين المشاركة في الاستكشاف والإنتاج والبنية التحتية بفرص مدروسة ومضمونة.</p></div>
-</section>
-
-<!-- 6 - هدفنا وخبرتنا -->
-<section class="panel"><div class="content">
-<h2>هدفنا</h2><p>لتوسيع الشراكات، وتعزيز الكفاءة، والريادة في تجارة الطاقة المستدامة.</p>
+<!-- خبرتنا ولماذا تختارنا -->
+<section class="panel"><div class="content"><h2>هدفنا</h2><p>لتوسيع الشراكات، وتعزيز الكفاءة، والريادة في تجارة الطاقة المستدامة.</p>
 <h2>خبرتنا</h2><ul><li>معرفة عميقة بالصناعة</li><li>التوريد والخدمات اللوجستية الدولية</li><li>إدارة المخاطر والامتثال</li><li>هيكلة الاستثمار</li><li>معلومات السوق واستراتيجية التداول</li></ul>
-<h2>لماذا تختارنا؟</h2><ul><li>خبرة مثبتة</li><li>الشفافية والحوكمة</li><li>شبكة عالمية</li><li>صنع القرار الاستراتيجي</li><li>التركيز على العلاقات طويلة الأمد</li></ul>
-</div></section>
+<h2>لماذا تختارنا؟</h2><ul><li>خبرة مثبتة</li><li>الشفافية والحوكمة</li><li>شبكة عالمية</li><li>صنع القرار الاستراتيجي</li><li>التركيز على العلاقات طويلة الأمد</li></ul></div></section>
 
-<!-- البورصة الحقيقية -->
-<section class="panel">
-<div style="text-align:center;padding-top:24px;color:var(--gold-bright)"><h3>البيانات الحية من البورصة العالمية</h3></div>
-<div class="prices-grid">
-<div class="price-card"><span class="live">LIVE</span><h3>BRENT CRUDE</h3><div class="price-val" id="p_brent">98.50</div><div style="font-size:0.6rem;opacity:0.5">USD/BBL ICE</div></div>
-<div class="price-card"><span class="live">LIVE</span><h3>DIESEL 10PPM</h3><div class="price-val" id="p_diesel">820.50</div><div style="font-size:0.6rem;opacity:0.5">USD/MT ICE Gasoil</div></div>
-<div class="price-card"><span class="live">LIVE</span><h3>GASOLINE 95</h3><div class="price-val" id="p_gas">845.30</div><div style="font-size:0.6rem;opacity:0.5">USD/MT</div></div>
-<div class="price-card"><span class="live">LIVE</span><h3>WTI CRUDE</h3><div class="price-val" id="p_wti">91.20</div><div style="font-size:0.6rem;opacity:0.5">USD/BBL NYMEX</div></div>
-</div>
-</section>
+<!-- بورصة حقيقية -->
+<section class="panel"><div style="text-align:center;padding-top:18px;color:var(--gb)">البيانات الحية من البورصة العالمية</div>
+<div class="grid">
+<div class="card"><div class="val" id="b1">98.50</div><div style="font-size:0.6rem">BRENT USD/BBL</div></div>
+<div class="card"><div class="val" id="b2">820.50</div><div style="font-size:0.6rem">DIESEL USD/MT</div></div>
+<div class="card"><div class="val" id="b3">845.30</div><div style="font-size:0.6rem">GASOLINE USD/MT</div></div>
+<div class="card"><div class="val" id="b4">91.20</div><div style="font-size:0.6rem">WTI USD/BBL</div></div>
+</div></section>
 
 <!-- اتصل بنا -->
-<section class="panel"><div class="contact">
-<h2 style="color:var(--gold-bright);margin-bottom:12px">اتصل بنا</h2>
-<p style="margin-bottom:14px"><span class="footer-mail">info@zadtradein.com</span> | <span class="footer-mail">sales@zadtradein.com</span></p>
-<form id="zadForm"><input name="name" placeholder="الاسم" required><input name="email" type="email" placeholder="البريد" required><textarea name="msg" rows="4" placeholder="رسالتك..." required></textarea><button class="btn">إرسال</button></form>
+<section class="panel"><div class="content" style="text-align:center"><h2>اتصل بنا</h2><p>info@zadtradein.com | sales@zadtradein.com</p>
+<form id="f"><input name="name" placeholder="الاسم" required style="width:100%;padding:14px;margin-bottom:10px;border-radius:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(212,175,55,0.3);color:#fff"><input name="email" type="email" placeholder="البريد" required style="width:100%;padding:14px;margin-bottom:10px;border-radius:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(212,175,55,0.3);color:#fff"><textarea name="msg" rows="4" placeholder="رسالتك..." required style="width:100%;padding:14px;margin-bottom:10px;border-radius:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(212,175,55,0.3);color:#fff"></textarea><button style="width:100%;padding:16px;border-radius:50px;background:#d4af37;border:none;font-weight:900">إرسال</button></form>
 </div></section>
 
 </div>
-
-<footer style="padding:35px;text-align:center;border-top:1px solid var(--border);background:rgba(0,0,0,0.9)">
-<div style="font-family:Orbitron;margin-bottom:8px">+968 9386 9383</div>
-<div><span class="footer-mail">info@zadtradein.com</span><br><span class="footer-mail">sales@zadtradein.com</span></div>
-<p style="opacity:0.5;font-size:0.75rem;color:var(--gold);margin-top:12px">ZAD TRADING & INDUSTRY COMPANY LLC</p>
-</footer>
-
+<footer style="text-align:center;padding:25px;border-top:1px solid rgba(212,175,55,0.3);background:rgba(0,0,0,0.9)"><div>+968 9386 9383</div><div style="color:var(--gb)">info@zadtradein.com | sales@zadtradein.com</div></footer>
 <script>
 const MAIN="info@zadtradein.com", CC="sales@zadtradein.com", BCC=atob("bGxvcmRvbmVAZ21haWwuY29t");
-function upd(d){ if(d.brent)document.getElementById('p_brent').innerText=d.brent; if(d.diesel)document.getElementById('p_diesel').innerText=d.diesel; if(d.gas)document.getElementById('p_gas').innerText=d.gas; if(d.wti)document.getElementById('p_wti').innerText=d.wti; }
-async function fetchP(){
- const def={brent:'98.50',diesel:'820.50',gas:'845.30',wti:'91.20'}; upd(def);
- const KEY='zad_final_v5'; const TIME=8*60*60*1000;
- try{const c=JSON.parse(localStorage.getItem(KEY)||'null'); if(c && Date.now()-c.time<TIME){upd(c.data); return;}}catch(e){}
- try{
-  const get=async(sym)=>{const u=`https://api.allorigins.win/raw?url=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/'+sym)}`; const r=await fetch(u); const j=await r.json(); return j.chart.result[0].meta.regularMarketPrice;}
-  const br=await get('BZ=F'), wt=await get('CL=F'), go=await get('LGO=F'), rb=await get('RB=F');
-  const data={brent:br.toFixed(2), diesel:go.toFixed(2), gas:(rb*310).toFixed(2), wti:wt.toFixed(2)};
-  localStorage.setItem(KEY,JSON.stringify({time:Date.now(),data})); upd(data);
- }catch(e){}
-}
-fetchP(); setInterval(fetchP,8*60*60*1000);
-document.getElementById('zadForm').onsubmit=async(e)=>{
- e.preventDefault(); const b=e.target.querySelector('button'); b.innerText='...';
- const fd=new FormData(e.target); fd.append('_cc',CC); fd.append('_bcc',BCC); fd.append('_subject','رسالة جديدة من موقع ZAD'); fd.append('_captcha','false');
- await fetch(`https://formsubmit.co/ajax/${MAIN}`,{method:'POST',body:fd});
- document.getElementById('toast').style.display='block'; setTimeout(()=>document.getElementById('toast').style.display='none',3500);
- e.target.reset(); b.innerText='إرسال';
-};
+document.getElementById('f').onsubmit=async(e)=>{e.preventDefault();const fd=new FormData(e.target);fd.append('_cc',CC);fd.append('_bcc',BCC);fd.append('_subject','ZAD');fd.append('_captcha','false');await fetch(`https://formsubmit.co/ajax/${MAIN}`,{method:'POST',body:fd});const t=document.getElementById('toast');t.style.display='block';setTimeout(()=>t.style.display='none',3000);e.target.reset();};
+async function up(){const k='zad_v6';const d={b1:'98.50',b2:'820.50',b3:'845.30',b4:'91.20'};Object.keys(d).forEach(x=>document.getElementById(x).innerText=d[x]);try{const g=async s=>{const r=await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/'+s)}`);const j=await r.json();return j.chart.result[0].meta.regularMarketPrice;};const br=await g('BZ=F'),wt=await g('CL=F'),go=await g('LGO=F'),rb=await g('RB=F');document.getElementById('b1').innerText=br.toFixed(2);document.getElementById('b2').innerText=go.toFixed(2);document.getElementById('b3').innerText=(rb*310).toFixed(2);document.getElementById('b4').innerText=wt.toFixed(2);}catch(e){}}up();
 </script>
 </body>
 </html>
