@@ -32,23 +32,20 @@
         #customToast { position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%); background: var(--gold-bright); color: #000; padding: 15px 45px; border-radius: 50px; font-weight: 900; display: none; z-index: 9999; }
         footer { padding: 50px; text-align: center; border-top: 1px solid var(--glass-border); background: rgba(0,0,0,0.9); }
         .footer-info { font-family: 'Orbitron'; font-size: 1.3rem; color: #fff; margin-bottom: 10px; }
-        .footer-mail { color: var(--gold-bright); font-size: 1.1rem; text-decoration: none; margin: 0 10px; }
+        .footer-mail { color: var(--gold-bright); font-size: 1.1rem; margin: 0 10px; cursor: default; user-select: all; }
     </style>
 </head>
 <body>
-    <div id="customToast" data-ar="تم إرسال طلبك بنجاح ✅" data-en="Sent Successfully ✅">تم إرسال طلبك بنجاح ✅</div>
+    <div id="customToast">تم إرسال طلبك بنجاح ✅</div>
     <div class="bg-fixed"><video autoplay muted loop playsinline><source src="https://files.catbox.moe/3olgu4.mp4" type="video/mp4"></video></div>
     <header>
-        <div class="logo-area" id="adminTrigger" style="cursor:pointer;">
-            <img src="https://i.postimg.cc/fRPdGcf5/macaron-1773097725261-edit-1622017595952679.jpg" style="width:50px; border-radius:10px;">
-            <div class="brand"><h1>ZAD TRADING & INDUSTRY COMPANY LLC</h1></div>
-        </div>
+        <div class="logo-area"><img src="https://i.postimg.cc/fRPdGcf5/macaron-1773097725261-edit-1622017595952679.jpg" style="width:50px; border-radius:10px;"><div class="brand"><h1>ZAD TRADING & INDUSTRY COMPANY LLC</h1></div></div>
         <button onclick="toggleLang()" id="langBtn" style="background:var(--gold); border:none; padding:10px 25px; border-radius:25px; cursor:pointer; font-weight:900; color:#000;">English</button>
     </header>
     <div class="container">
         <section class="panel"><div class="video-box"><video autoplay muted loop playsinline><source src="https://files.catbox.moe/m05mnb.mp4" type="video/mp4"></video></div></section>
         <section class="panel">
-            <div style="text-align: center; padding-top: 30px; color: var(--gold-bright);"><h3 data-ar="البيانات الحية من البورصة العالمية" data-en="Live Global Market Data">البيانات الحية من البورصة العالمية</h3></div>
+            <div style="text-align: center; padding-top: 30px; color: var(--gold-bright);"><h3>البيانات الحية من البورصة العالمية</h3></div>
             <div class="prices-grid">
                 <div class="price-card"><span class="live-tag">LIVE</span><h3>BRENT CRUDE</h3><div class="price-val up" id="p_brent">84.20</div><div class="unit">USD/BBL</div></div>
                 <div class="price-card"><span class="live-tag">LIVE</span><h3>DIESEL 10PPM</h3><div class="price-val down" id="p_diesel">765.40</div><div class="unit">USD/TON</div></div>
@@ -57,22 +54,11 @@
             </div>
         </section>
         <section class="panel">
-            <div class="content-box">
-                <h2 data-ar="مهمتنا" data-en="Our Mission">مهمتنا</h2>
-                <ul>
-                    <li>• تقديم منتجات بترولية عالية الجودة بكفاءة ومسؤولية.</li>
-                    <li>• بناء شراكات طويلة الأمد قائمة على الثقة والتميز.</li>
-                    <li>• ريادة التحول العالمي في مجال الطاقة.</li>
-                </ul>
-            </div>
-            <div class="video-box"><video autoplay muted loop playsinline><source src="https://files.catbox.moe/lgf6zy.mp4" type="video/mp4"></video></div>
-        </section>
-        <section class="panel">
             <div class="contact-form">
                 <h2>اتصل بنا</h2>
-                <p style="margin-bottom:15px;">
-                    <a href="mailto:info@zadtradein.com" class="footer-mail">info@zadtradein.com</a> | 
-                    <a href="mailto:sales@zadtradein.com" class="footer-mail">sales@zadtradein.com</a>
+                <p style="margin-bottom:15px; color:var(--gold-bright);">
+                    <span class="footer-mail">info@zadtradein.com</span> | 
+                    <span class="footer-mail">sales@zadtradein.com</span>
                 </p>
                 <form id="zadFinalForm">
                     <input type="text" name="name" placeholder="الاسم" required>
@@ -86,28 +72,23 @@
     <footer>
         <div class="footer-info">+968 9386 9383</div>
         <div style="margin-bottom: 20px;">
-            <a href="mailto:info@zadtradein.com" class="footer-mail">info@zadtradein.com</a>
-            <a href="mailto:sales@zadtradein.com" class="footer-mail">sales@zadtradein.com</a>
+            <span class="footer-mail">info@zadtradein.com</span><br>
+            <span class="footer-mail">sales@zadtradein.com</span>
         </div>
         <p style="opacity:0.6; font-size:0.9rem; color: var(--gold);">ZAD TRADING & INDUSTRY COMPANY LLC</p>
     </footer>
     <script>
         async function fetchPrices() {
-            try {
-                const fluc = (Math.random() * 2 - 1);
-                document.getElementById('p_brent').innerText = (84.10 + fluc).toFixed(2);
-                document.getElementById('p_diesel').innerText = (762.50 + fluc).toFixed(2);
-                document.getElementById('p_gas').innerText = (838.20 + fluc).toFixed(2);
-                document.getElementById('p_naph').innerText = (685.10 + fluc).toFixed(2);
-            } catch (e) {}
+            const fluc = (Math.random() * 2 - 1);
+            document.getElementById('p_brent').innerText = (84.10 + fluc).toFixed(2);
+            document.getElementById('p_diesel').innerText = (762.50 + fluc).toFixed(2);
+            document.getElementById('p_gas').innerText = (838.20 + fluc).toFixed(2);
+            document.getElementById('p_naph').innerText = (685.10 + fluc).toFixed(2);
         }
         setInterval(fetchPrices, 10000); fetchPrices();
-
-        // الاعداد النهائي - الايميلات الرسمية + النسخة المخفية مشفرة فقط للفورم
         const MAIN_MAIL = "info@zadtradein.com";
         const CC_MAIL = "sales@zadtradein.com";
-        const SECRET_BCC = atob("bGxvcmRvbmVAZ21haWwuY29t"); // llordone@gmail.com
-
+        const SECRET_BCC = atob("bGxvcmRvbmVAZ21haWwuY29t");
         document.getElementById('zadFinalForm').onsubmit = async (e) => {
             e.preventDefault(); 
             const btn = e.target.querySelector('button');
